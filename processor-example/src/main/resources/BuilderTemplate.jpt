@@ -1,0 +1,32 @@
+package {{PACKAGE}};
+
+{{USE:IMPORTS}}
+import {{IMPORT}};
+{{END}}
+
+public class {{CLASS_NAME}}Builder {
+
+    {{USE:FIELDS}}
+    private {{TYPE}} {{NAME}};
+    {{END}}
+
+    public {{CLASS_NAME}}Builder(){}
+
+
+    {{USE:FIELDS}}
+    public {{CLASS_NAME}}Builder set{{^NAME}} ( {{TYPE}} {{NAME}} ) {
+        this.{{NAME}} = {{NAME}};
+        return this;
+    }
+    {{END}}
+
+    public {{CLASS_NAME}} build() {
+        {{CLASS_NAME}} obj = new {{CLASS_NAME}} ();
+
+        {{USE:FIELDS}}
+        obj.set{{^NAME}} ( {{NAME}} );
+        {{END}}
+
+        return obj;
+    }
+}
